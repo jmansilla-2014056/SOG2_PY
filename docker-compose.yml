@@ -1,0 +1,19 @@
+version: '2.0'
+services:
+  pagina:
+    image: odoo:14.0
+    depends_on:
+      - postgres
+    ports:
+      - "8069:8069"
+    environment:
+    - HOST=postgres
+    - USER=admin
+    - PASSWORD=123456
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=admin
